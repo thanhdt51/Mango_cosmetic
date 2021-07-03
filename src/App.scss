@@ -1,0 +1,26 @@
+$background: #fff1f3;
+
+a,
+a:hover {
+  text-decoration: none;
+  color: unset;
+}
+
+:root {
+  font-weight: 400;
+}
+
+/* HOMEPAGE BODY */
+main {
+  min-height: calc(100vh - 126px - 306.3px);
+
+  @media (min-width: 992px) {
+    min-height: calc(100vh - 126px - 336px);
+  }
+}
+
+/* FOOTER */
+
+footer {
+  background: $background;
+}

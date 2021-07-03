@@ -1,0 +1,28 @@
+@import "../variables";
+
+.modalHeader {
+  background: $background;
+
+  :global(.btn-close) {
+    margin-bottom: calc(133px / 2);
+  }
+
+  .logoCenter {
+    margin-left: calc(50vw - 1rem - 50px);
+
+    .logo {
+      width: 100px;
+    }
+  }
+}
+
+.modalBody {
+  :global(.nav-tabs) {
+    flex-direction: row;
+
+    :global(.nav-item) {
+      width: 50%;
+      text-align: center;
+    }
+  }
+}

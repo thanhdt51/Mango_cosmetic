@@ -1,0 +1,26 @@
+.signUpForm {
+  .orText {
+    text-align: center;
+    position: relative;
+    margin: 20px 0;
+  }
+
+  .orText::before {
+    width: 100%;
+    height: 1px;
+    content: '';
+    background: #E0E0E0;
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5px;
+    left: 0;
+  }
+
+  span {
+    padding: 0 10px;
+    background: #fff;
+    font-size: 14px;
+    color: #BDBDBD;
+    position: relative;
+  }
+}
