@@ -8,17 +8,19 @@ import {
 
 import { Container, Row, Col } from "react-bootstrap";
 
-import Icon from "../Icon";
+import s from "./Footer.module.scss"
+
+import Icon from "../../Icon";
 
 import Logo from "../Header/Logo";
 
 function Footer() {
   return (
-    <footer>
+    <footer className={s.footer}>
       <Container fluid>
         <Row className="align-items-center">
           <Col xs={6} lg={3}>
-            <Logo />
+            <Logo fill="white" />
           </Col>
 
           <Col xs={6} lg={3}>

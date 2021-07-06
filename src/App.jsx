@@ -2,13 +2,13 @@ import React from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Header from "./Header";
-import Slide from "./Body/Slide"
-import Footer from "./Footer";
+import Header from "./Layout/Header";
+import Slide from "./Layout/Body/Slide";
+import Footer from "./Layout/Footer";
 
 import "./App.scss";
-import BestSellerSwiper from "./Body/BestSellerSwiper";
-
+import BestSellerSwiper from "./Layout/Body/BestSellerSwiper";
+import BannerSkincare from "./Layout/Body/BannerSkincare";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
       <main>
         <Slide />
         <BestSellerSwiper />
+        <BannerSkincare />
       </main>
 
       <Footer />

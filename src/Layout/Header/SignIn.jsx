@@ -6,7 +6,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
-import Icon from "../Icon";
+import Icon from "../../Icon";
 import s from "./SignIn.module.scss";
 
 class SignIn extends React.Component {

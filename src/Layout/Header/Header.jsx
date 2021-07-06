@@ -11,11 +11,11 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
 
 import "./Header.scss";
 
-import Icon from "../Icon";
+import Button from "../../Button";
+import Icon from "../../Icon";
 import Logo from "./Logo";
 import SignModal from "./SignModal";
 
@@ -44,7 +44,7 @@ class Header extends React.Component {
         <Navbar collapseOnSelect expand="lg" bg="#fff1f3">
           <Container>
             <Navbar.Brand href="#home" className="order-lg-0">
-              <Logo className="logo" />
+              <Logo className="logo" fill="#a6a8aa" />
             </Navbar.Brand>
             <div className="d-lg-none cart ml-auto mr-3">
               <a href="#cart">
@@ -60,7 +60,7 @@ class Header extends React.Component {
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <Button variant="outline-success">
+                <Button className="text">
                   <Icon icon={faSearch} color="black" />
                 </Button>
               </Form>
@@ -132,7 +132,7 @@ class Header extends React.Component {
                 </a>
               </div>
 
-              <Nav className="me-auto order-lg-4">
+              <Nav className="mr-auto order-lg-4">
                 <Nav.Link onClick={this.showModal}>
                   <Icon
                     icon={faUser}

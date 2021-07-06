@@ -1,0 +1,37 @@
+@import "../../variables";
+
+.titleSwiper {
+  margin-top: 100px;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 100;
+  letter-spacing: 3px;
+}
+
+.swiper {
+  :global(.swiper-button-next:after),
+  :global(.swiper-button-prev:after) {
+    color: gray;
+    font-size: 30px;
+  }
+
+  .swiperSlide {
+    display: flex;
+    justify-content: center;
+
+    .card {
+      width: 80%;
+
+      .cardBody {
+        text-align: center;
+
+        .cardTitle {
+          font-size: large;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}

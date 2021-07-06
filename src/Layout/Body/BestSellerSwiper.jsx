@@ -1,11 +1,19 @@
 import React from "react";
 
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.scss";
+import SwiperCore, { Navigation } from "swiper/core";
 
+import Button from "../../Button";
+
+import "swiper/components/navigation/navigation.scss";
+import "swiper/swiper.scss";
 import s from "./BestSellerSwiper.module.scss";
 
+SwiperCore.use(Navigation);
+
+const moneyParser = (value) =>
+  `${value}đ`.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const products = [
   {
     brand_name: "Dove",
@@ -77,30 +85,35 @@ const products = [
 function BestSellerSwiper() {
   return (
     <>
-      <h4 className={s.titleSwiper}>SHOP BEST SELLERS</h4>
-      <Swiper
-        slidesPerView={1}
-        breakpoints={{ 992: { slidesPerView: 4, spaceBetween: 50 } }}
-      >
-        {products.map((product) => (
-          <SwiperSlide className={s.swiperSlide} key={product.id}>
-            <Card className={s.card}>
-              <Card.Img
-                className={s.imgSwiper}
-                variant="top"
-                src={product.thumbnail_url}
-              />
-              <Card.Body className={s.cardBody}>
-                <Card.Title className={s.cardTitle}>{product.name}</Card.Title>
-                <Card.Text>{product.price}</Card.Text>
-                <Button className={s.cartBtn} variant="primary" size="lg">
-                  Add to cart
-                </Button>
-              </Card.Body>
-            </Card>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <h3 className={s.titleSwiper}>SHOP BEST SELLERS</h3>
+      <div className={s.swiper}>
+        <Swiper
+          navigation
+          slidesPerView={1}
+          breakpoints={{ 992: { slidesPerView: 4, spaceBetween: 50 } }}
+        >
+          {products.map((product) => (
+            <SwiperSlide className={s.swiperSlide} key={product.id}>
+              <Card className={s.card}>
+                <Card.Img
+                  className={s.imgSwiper}
+                  variant="top"
+                  src={product.thumbnail_url}
+                />
+                <Card.Body className={s.cardBody}>
+                  <Card.Title className={s.cardTitle}>
+                    {product.name}
+                  </Card.Title>
+                  <Card.Text>{moneyParser(product.price)}</Card.Text>
+                  <Button>
+                    ADD TO BAG
+                  </Button>
+                </Card.Body>
+              </Card>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </>
   );
 }

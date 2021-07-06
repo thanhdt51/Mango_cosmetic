@@ -1,0 +1,9 @@
+.button {
+  background: #afd234;
+  border: none;
+  color: inherit;
+
+  &:global(.text) {
+    background: none;
+  }
+}
