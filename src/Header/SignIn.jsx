@@ -48,15 +48,15 @@ class SignIn extends React.Component {
             <span>Or</span>
           </div>
 
-          <div>
-            <a href="#">
-              <Icon icon={faFacebook} color="black" />
+          <div className={s.signInSocial}>
+            <a className={s.fb} href="#">
+              <Icon icon={faFacebook} color="#3B5999" />
             </a>
-            <a href="#">
-              <Icon icon={faGoogle} color="black" />
+            <a className={s.gg} href="#">
+              <Icon icon={faGoogle} color="red" />
             </a>
-            <a href="#">
-              <Icon icon={faTwitter} color="black" />
+            <a className={s.tt} href="#">
+              <Icon icon={faTwitter} color="#4688F1" />
             </a>
           </div>
         </>

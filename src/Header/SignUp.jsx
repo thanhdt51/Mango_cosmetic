@@ -1,7 +1,14 @@
 import React from "react";
-import {Form, Button} from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
+import {
+  faFacebook,
+  faGoogle,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
-import s from "./SignUp.module.scss"
+import Icon from "../Icon";
+
+import s from "./SignUp.module.scss";
 
 function SignUp() {
   return (
@@ -21,17 +28,18 @@ function SignUp() {
         <span>Or</span>
       </div>
 
-     {/*  <div>
-        <a href="#">
-          <Icon icon={faFacebookF} color="black" />
+      <div className={s.signInSocial}>
+        <a className={s.fb} href="#">
+          <Icon icon={faFacebook} color="#3B5999" />
         </a>
-        <a href="#">
-          <Icon icon={faGoogle} color="black" />
+        <a className={s.gg} href="#">
+          <Icon icon={faGoogle} color="red" />
         </a>
-        <a href="#">
-          <Icon icon={faTwitter} color="black" />
+        <a className={s.tt} href="#">
+          <Icon icon={faTwitter} color="#4688F1" />
         </a>
-      </div> */}
+      </div>
+
     </Form>
   );
 }

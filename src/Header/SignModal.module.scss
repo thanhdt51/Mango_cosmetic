@@ -7,11 +7,21 @@
     margin-bottom: calc(133px / 2);
   }
 
-  .logoCenter {
-    margin-left: calc(50vw - 1rem - 50px);
+  .modalTitle {
+    @media (min-width: 992px) {
+      margin-left: calc(50% - 50px);
+    }
 
-    .logo {
-      width: 100px;
+    .logoCenter {
+      margin-left: calc(50vw - 1rem - 50px);
+  
+      @media (min-width: 992px) {
+        margin-left: 0;
+      }
+  
+      .logo {
+        width: 100px;
+      }
     }
   }
 }

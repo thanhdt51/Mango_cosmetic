@@ -7,6 +7,7 @@ import Slide from "./Body/Slide"
 import Footer from "./Footer";
 
 import "./App.scss";
+import BestSellerSwiper from "./Body/BestSellerSwiper";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 
       <main>
         <Slide />
+        <BestSellerSwiper />
       </main>
 
       <Footer />

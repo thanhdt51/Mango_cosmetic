@@ -7,13 +7,9 @@ header {
     width: 100px;
   }
 
-  .cart {
-    margin-left: 150px;
-
-    sup.cartNumber {
-      font-size: 15px;
-      vertical-align: 5px;
-    }
+  sup.cartNumber {
+    font-size: 15px;
+    vertical-align: 5px;
   }
 
   :global(button.collapsed) {

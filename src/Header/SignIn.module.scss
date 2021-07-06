@@ -23,4 +23,29 @@
     color: #BDBDBD;
     position: relative;
   }
+
+  .signInSocial {
+    display: flex;
+    gap: 7%;
+
+    a {
+      width: 35%;
+      text-align: center;
+      padding: 5px;
+      border-radius: 2px;
+    }
+
+    .fb {
+      border: 1px solid #3B5999;
+    }
+
+    .gg {
+      border: 1px solid red;
+    }
+
+    .tt {
+      border: 1px solid #4688F1;
+    }
+  }
+
 }

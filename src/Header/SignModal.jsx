@@ -14,7 +14,7 @@ function SignModal(props) {
   return (
     <Modal show={show} fullscreen="lg-down" onHide={hideModal}>
       <Modal.Header className={s.modalHeader} closeButton>
-        <Modal.Title>
+        <Modal.Title className={s.modalTitle}>
           <div className={s.logoCenter}>
             <Logo className={s.logo} />
           </div>
