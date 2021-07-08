@@ -27,11 +27,12 @@ function Logo(props) {
 
 Logo.propTypes = {
   className: PropTypes.string,
-  fill: PropTypes.string.isRequired,
+  fill: PropTypes.string,
 };
 
 Logo.defaultProps = {
   className: null,
+  fill: "#a6a8aa",
 };
 
 export default Logo;

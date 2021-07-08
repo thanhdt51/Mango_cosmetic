@@ -1,7 +1,11 @@
 .button {
-  background: #afd234;
+  background: #00A8F2;
   border: none;
-  color: inherit;
+  color: white;
+
+  &:hover {
+    background: #006a97;
+  }
 
   &:global(.text) {
     background: none;

@@ -5,12 +5,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
+import { Navbar, Nav, Container, Form, FormControl } from "react-bootstrap";
 
 import "./Header.scss";
 
@@ -18,6 +13,7 @@ import Button from "../../Button";
 import Icon from "../../Icon";
 import Logo from "./Logo";
 import SignModal from "./SignModal";
+import Navigation from "./Navigation";
 
 class Header extends React.Component {
   constructor(props) {
@@ -44,7 +40,7 @@ class Header extends React.Component {
         <Navbar collapseOnSelect expand="lg" bg="#fff1f3">
           <Container>
             <Navbar.Brand href="#home" className="order-lg-0">
-              <Logo className="logo" fill="#a6a8aa" />
+              <Logo className="logo"/>
             </Navbar.Brand>
             <div className="d-lg-none cart ml-auto mr-3">
               <a href="#cart">
@@ -66,64 +62,8 @@ class Header extends React.Component {
               </Form>
               <hr className="d-lg-none" />
 
-              <Nav className="me-auto order-lg-1">
-                <Nav.Link className="pl-lg-4" href="#home">
-                  Home
-                </Nav.Link>
-                <NavDropdown
-                  href="#makeup"
-                  title="Makeup"
-                  id="collasible-nav-dropdown"
-                  className="pl-lg-4"
-                >
-                  <NavDropdown.Item href="#makeup/eyes">Eyes</NavDropdown.Item>
-                  <NavDropdown.Item href="#makeup/lips">Lips</NavDropdown.Item>
-                  <NavDropdown.Item href="#makeup/face">Face</NavDropdown.Item>
-                </NavDropdown>
-                <NavDropdown
-                  title="Skincare"
-                  id="collasible-nav-dropdown"
-                  className="pl-lg-4"
-                >
-                  <NavDropdown.Item href="#skincare/mask">
-                    Mask
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#skincare/cleanser">
-                    Cleanser
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#skincare/toner">
-                    Toner
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <NavDropdown
-                  title="Bodycare"
-                  id="collasible-nav-dropdown"
-                  className="pl-lg-4"
-                >
-                  <NavDropdown.Item href="#bodycare/showergel">
-                    Shower Gel
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#bodycare/lotion">
-                    Lotion
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#bodycare/showergel">
-                    Toner
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <NavDropdown
-                  title="Haircare"
-                  id="collasible-nav-dropdown"
-                  className="pl-lg-4"
-                >
-                  <NavDropdown.Item href="#haircare/shampoo">
-                    Shampoo
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#haircare/conditioner">
-                    Conditioner
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </Nav>
-
+              <Navigation />
+              
               <hr className="d-lg-none" />
               <div className="d-none d-lg-block order-lg-3 cart pr-lg-2">
                 <a href="#cart">

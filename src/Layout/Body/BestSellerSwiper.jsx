@@ -14,6 +14,7 @@ SwiperCore.use(Navigation);
 
 const moneyParser = (value) =>
   `${value}đ`.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
 const products = [
   {
     brand_name: "Dove",
@@ -101,11 +102,11 @@ function BestSellerSwiper() {
                   src={product.thumbnail_url}
                 />
                 <Card.Body className={s.cardBody}>
-                  <Card.Title className={s.cardTitle}>
+                  <Card.Title title={product.name} className={s.cardTitle}>
                     {product.name}
                   </Card.Title>
                   <Card.Text>{moneyParser(product.price)}</Card.Text>
-                  <Button>
+                  <Button className={s.cartBtn}>
                     ADD TO BAG
                   </Button>
                 </Card.Body>

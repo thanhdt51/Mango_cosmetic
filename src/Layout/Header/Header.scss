@@ -15,24 +15,4 @@ header {
   :global(button.collapsed) {
     margin-left: 40px;
   }
-
-  /* .makeup {
-    position: relative;
-
-    .makeupchildren {
-      display: none;
-      position: absolute;
-      top: 30px;
-      left: 10px;
-      padding: 10px 20px;
-      box-shadow: 0 0 20px -20px black;
-      border-radius: 4px;
-    }
-
-    &:hover .makeupchildren {
-      display: block;
-      z-index: 2;
-      background: $background;
-    }
-  } */
 }

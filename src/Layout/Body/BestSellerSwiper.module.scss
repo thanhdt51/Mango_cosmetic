@@ -18,9 +18,11 @@
   .swiperSlide {
     display: flex;
     justify-content: center;
+    margin-right: 0;
 
     .card {
       width: 80%;
+      cursor: pointer;
 
       .cardBody {
         text-align: center;
@@ -30,6 +32,10 @@
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
+        }
+
+        .cartBtn {
+          width: 100%;
         }
       }
     }

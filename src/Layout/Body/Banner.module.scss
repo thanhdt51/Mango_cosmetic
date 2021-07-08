@@ -1,0 +1,18 @@
+.cardBody {
+  text-align: center;
+  position: static;
+
+  @media (min-width: 992px) {
+    position: absolute;
+  }
+
+  .cardTitle {
+    font-weight: 100;
+    letter-spacing: 3px;
+  }
+
+  .shopBtn {
+    width: 50%;
+    font-size: 16px;
+  }
+}
