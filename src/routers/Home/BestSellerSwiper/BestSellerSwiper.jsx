@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper/core";
 
-import Button from "../../Button";
+import Button from "../../../components/Button";
 
 import "swiper/components/navigation/navigation.scss";
 import "swiper/swiper.scss";

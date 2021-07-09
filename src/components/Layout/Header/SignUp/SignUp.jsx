@@ -6,7 +6,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
-import Icon from "../../Icon";
+import Icon from "../../../Icon";
 
 import s from "./SignUp.module.scss";
 
@@ -39,7 +39,6 @@ function SignUp() {
           <Icon icon={faTwitter} color="#4688F1" />
         </a>
       </div>
-
     </Form>
   );
 }

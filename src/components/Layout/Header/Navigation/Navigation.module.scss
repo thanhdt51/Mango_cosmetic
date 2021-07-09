@@ -1,0 +1,30 @@
+@import "../../../../variables";
+
+.navName {
+  text-transform: capitalize;
+}
+
+.navItem {
+  position: relative;
+
+  .navChildren {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 0 20px -20px black;
+    border-radius: 4px;
+  }
+
+  &:hover .navChildren {
+    display: block;
+    z-index: 2;
+    background: #fff7f9;
+    min-width: max-content;
+
+    :global(.nav-link:hover) {
+      font-weight: 500;
+    }
+  }
+}

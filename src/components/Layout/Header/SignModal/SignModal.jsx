@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Modal, Tab, Tabs } from "react-bootstrap";
 
-import Logo from "./Logo";
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
+import Logo from "../Logo";
+import SignIn from "../SignIn";
+import SignUp from "../SignUp";
 
 import s from "./SignModal.module.scss";
 

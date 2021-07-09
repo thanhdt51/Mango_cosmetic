@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import Button from "../../Button";
+import Button from "../../../components/Button";
 
 import s from "./Banner.module.scss";
 
@@ -11,8 +11,8 @@ function Banner(props) {
   const { className, title, imgSrc, description } = props;
 
   return (
-    <Card>
-      <Card.Img as="picture">
+    <Card className={s.card}>
+      <Card.Img className={s.cardPicture} as="picture">
         <source media="(max-width: 991px)" srcSet={imgSrc.mobile} />
         <source media="(min-width: 992px)" srcSet={imgSrc.desktop} />
         <img src={imgSrc.default} alt="banner" />

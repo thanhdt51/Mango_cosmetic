@@ -5,7 +5,7 @@ import s from "./Slide.module.scss";
 
 function Slide() {
   return (
-    <Carousel interval={100000} variant="dark">
+    <Carousel variant="dark">
       {[1, 2, 3].map((value) => (
         <Carousel.Item className={s.slide} key={value}>
           <img
