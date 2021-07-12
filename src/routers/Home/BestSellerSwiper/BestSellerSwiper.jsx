@@ -1,19 +1,15 @@
 import React from "react";
 
-import { Card } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper/core";
 
-import Button from "../../../components/Button";
+import Product from "../../../components/Product";
 
 import "swiper/components/navigation/navigation.scss";
 import "swiper/swiper.scss";
 import s from "./BestSellerSwiper.module.scss";
 
 SwiperCore.use(Navigation);
-
-const moneyParser = (value) =>
-  `${value}đ`.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const products = [
   {
@@ -83,39 +79,28 @@ const products = [
   },
 ];
 
-function BestSellerSwiper() {
+function BestSellerSwiper({ className }) {
   return (
-    <>
+    <div className={className}>
       <h3 className={s.titleSwiper}>SHOP BEST SELLERS</h3>
       <div className={s.swiper}>
         <Swiper
           navigation
           slidesPerView={1}
-          breakpoints={{ 992: { slidesPerView: 4, spaceBetween: 50 } }}
+          breakpoints={{ 992: { slidesPerView: 4, spaceBetween: 5 } }}
         >
           {products.map((product) => (
             <SwiperSlide className={s.swiperSlide} key={product.id}>
-              <Card className={s.card}>
-                <Card.Img
-                  className={s.imgSwiper}
-                  variant="top"
-                  src={product.thumbnail_url}
-                />
-                <Card.Body className={s.cardBody}>
-                  <Card.Title title={product.name} className={s.cardTitle}>
-                    {product.name}
-                  </Card.Title>
-                  <Card.Text>{moneyParser(product.price)}</Card.Text>
-                  <Button className={s.cartBtn}>
-                    ADD TO BAG
-                  </Button>
-                </Card.Body>
-              </Card>
+              <Product
+                thumbnailUrl={product.thumbnail_url}
+                name={product.name}
+                price={product.price}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-    </>
+    </div>
   );
 }
 

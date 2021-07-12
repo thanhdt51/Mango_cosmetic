@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Home from "./Home";
-import Makeup from "./Makeup";
+import ProductPage from "./ProductPage";
 
 function Router() {
   return (
@@ -12,18 +12,12 @@ function Router() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/makeup">
-          <Makeup />
+        <Route exact path="/:category">
+          <ProductPage />
         </Route>
-        {/* <Route path="/skincare">
-          <Skincare />
+        <Route path="/:category/:subCategory">
+          <ProductPage />
         </Route>
-        <Route path="/bodycare">
-          <Bodycare />
-        </Route>
-        <Route path="/haircare">
-          <Haircare />
-        </Route> */}
       </Switch>
     </BrowserRouter>
   );

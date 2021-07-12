@@ -1,37 +1,47 @@
-main {
-  .banner1 {
-    text-align: center;
+.swiper {
+  margin-bottom: 100px;
 
-    @media (min-width: 992px) {
-      max-width: 30%;
-      height: fit-content;
-      text-align: end;
-      left: 45%;
-      top: 30%;
-    }
+  & + .banner1 {
+    border: none;
 
-    :global(.card-title) {
-      font-weight: 100;
-      letter-spacing: 3px;
-      font-size: 41px;
+    :global(.card-img-overlay) {
+      text-align: center;
+
+      @media (min-width: 992px) {
+        max-width: 30%;
+        height: fit-content;
+        text-align: end;
+        left: 45%;
+        top: 30%;
+      }
+
+      :global(.card-title) {
+        font-weight: 100;
+        letter-spacing: 3px;
+        font-size: 41px;
+      }
     }
   }
 
-  .banner2 {
-    text-align: center;
+  & + .banner1 + .banner2 {
+    border: none;
 
-    @media (min-width: 992px) {
-      max-width: max-content;
-      height: fit-content;
-      text-align: start;
-      top: 80px;
-      left: 60px;
-    }
+    :global(.card-img-overlay) {
+      text-align: center;
 
-    :global(.card-title) {
-      font-weight: 100;
-      letter-spacing: 3px;
-      font-size: 41px;
+      @media (min-width: 992px) {
+        max-width: max-content;
+        height: fit-content;
+        text-align: start;
+        top: 80px;
+        left: 60px;
+      }
+
+      :global(.card-title) {
+        font-weight: 100;
+        letter-spacing: 3px;
+        font-size: 41px;
+      }
     }
   }
 }

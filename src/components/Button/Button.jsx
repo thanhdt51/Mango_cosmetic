@@ -7,13 +7,15 @@ import s from "./Button.module.scss";
 
 function MyButton({ type, children, className, ...restProps }) {
   return (
-    <Button
-      className={classnames(s.button, { text: type === "text" }, className)}
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...restProps}
-    >
-      {children}
-    </Button>
+    <div className={s.myButton}>
+      <Button
+        className={classnames(s.button, { text: type === "text" }, className)}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...restProps}
+      >
+        {children}
+      </Button>
+    </div>
   );
 }
 

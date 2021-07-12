@@ -29,20 +29,26 @@ function Navigation() {
   return (
     <>
       {/* <NavMobile /> */}
-      <Nav className="me-auto d-block d-lg-none">
-        <Nav.Link as={Link} className="pl-lg-4" to="/">
+      <Nav key="mobile" className="me-auto d-block d-lg-none">
+        <Nav.Link key="home" as={Link} className="pl-lg-4" to="/">
           Home
         </Nav.Link>
 
         {navigationItems.map((item) => (
           <NavDropdown
+            key={item.category}
             as={Link}
             to={`/${item.category}`}
             title={item.category}
             className={classNames("pl-lg-4", s.navName)}
           >
             {item.subCategoryList.map((subCategory) => (
-              <NavDropdown.Item className={s.navName} as={Link} to={`/${item.category}/${subCategory}`}>
+              <NavDropdown.Item
+                key={subCategory}
+                className={s.navName}
+                as={Link}
+                to={`/${item.category}/${subCategory}`}
+              >
                 {subCategory}
               </NavDropdown.Item>
             ))}
@@ -51,18 +57,27 @@ function Navigation() {
       </Nav>
 
       {/* <NavDesktop /> */}
-      <Nav className="me-auto d-none d-lg-flex order-lg-1">
-        <Nav.Link as={Link} className="pl-lg-4" to="/">
+      <Nav key="desktop" className="me-auto d-none d-lg-flex order-lg-1">
+        <Nav.Link key="home" as={Link} className="pl-lg-4" to="/">
           Home
         </Nav.Link>
 
         {navigationItems.map((item) => (
-          <div className={s.navItem}>
-            <Nav.Link as={Link} to={`/${item.category}`} className={classNames("pl-lg-4", s.navName)}>
+          <div key={item.category} className={s.navItem}>
+            <Nav.Link
+              as={Link}
+              to={`/${item.category}`}
+              className={classNames("pl-lg-4", s.navName)}
+            >
               {item.category}
               <div className={s.navChildren}>
                 {item.subCategoryList.map((subCategory) => (
-                  <Nav.Link className={s.navName} as={Link} to={`/${item.category}/${subCategory}`}>
+                  <Nav.Link
+                    key={subCategory}
+                    className={s.navName}
+                    as={Link}
+                    to={`/${item.category}/${subCategory}`}
+                  >
                     {subCategory}
                   </Nav.Link>
                 ))}

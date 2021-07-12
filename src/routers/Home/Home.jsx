@@ -4,7 +4,7 @@ import s from "./Home.module.scss";
 
 import Slide from "./Slide";
 import BestSellerSwiper from "./BestSellerSwiper";
-import Banner from "./Banner";
+import Banner from "../../components/Banner";
 import Layout from "../../components/Layout";
 
 const banners = [
@@ -20,7 +20,7 @@ const banners = [
         "//cdn.shopify.com/s/files/1/0085/5362/7707/files/tm20_new_hp_mobile_skincare_414x.progressive.jpg?v=1589555566, //cdn.shopify.com/s/files/1/0085/5362/7707/files/tm20_new_hp_mobile_skincare_414x@2x.progressive.jpg?v=1589555566 2x",
       default:
         "//cdn.shopify.com/s/files/1/0085/5362/7707/files/tm20_new_hp_skincare_665ac386-082c-4afb-b759-4ac89f434d63_2880x.progressive.jpg?v=1589555548",
-  },
+    },
   },
   {
     className: s.banner2,
@@ -42,9 +42,10 @@ function Home() {
   return (
     <Layout>
       <Slide />
-      <BestSellerSwiper />
+      <BestSellerSwiper className={s.swiper} />
       {banners.map((banner) => (
         <Banner
+          showButton
           key={banner.title}
           className={banner.className}
           title={banner.title}

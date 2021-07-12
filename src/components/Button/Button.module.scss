@@ -1,13 +1,23 @@
-.button {
-  background: #00A8F2;
-  border: none;
-  color: white;
+.myButton {
+  .button {
+    background: black;
+    color: white;
 
-  &:hover {
-    background: #006a97;
-  }
+    &:global(.text) {
+      background: none;
+    }
 
-  &:global(.text) {
-    background: none;
+    @media (min-width: 992px) {
+      background: white;
+      border: none;
+      color: black;
+      border: 1px solid black;
+      transition: background 1s;
+
+      &:hover {
+        background: black;
+        color: white;
+      }
+    }
   }
 }
