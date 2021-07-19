@@ -2,6 +2,7 @@ import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper/core";
+import PropTypes from "prop-types";
 
 import Product from "../../../components/Product";
 
@@ -103,5 +104,13 @@ function BestSellerSwiper({ className }) {
     </div>
   );
 }
+
+BestSellerSwiper.propTypes = {
+  className: PropTypes.string,
+};
+
+BestSellerSwiper.defaultProps = {
+  className: null,
+};
 
 export default BestSellerSwiper;

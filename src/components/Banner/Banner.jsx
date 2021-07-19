@@ -8,7 +8,7 @@ import Button from "../Button";
 import s from "./Banner.module.scss";
 
 function Banner(props) {
-  const { className, title, imgSrc, description, showButton } = props;
+  const { className, title, imgSrc, description, showButton, showBackground } = props;
 
   return (
     <Card className={classNames(s.card, className)}>
@@ -17,6 +17,7 @@ function Banner(props) {
         <source media="(min-width: 992px)" srcSet={imgSrc.desktop} />
         <img src={imgSrc.default} alt="banner" />
       </Card.Img>
+      {showBackground && <div className={s.background} />}
       <Card.ImgOverlay className={s.cardBody}>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{description}</Card.Text>
@@ -36,11 +37,13 @@ Banner.propTypes = {
   }).isRequired,
   description: PropTypes.string.isRequired,
   showButton: PropTypes.bool,
+  showBackground: PropTypes.bool,
 };
 
 Banner.defaultProps = {
   className: null,
   showButton: false,
+  showBackground: false,
 };
 
 export default Banner;

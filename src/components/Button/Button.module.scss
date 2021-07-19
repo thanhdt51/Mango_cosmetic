@@ -5,13 +5,20 @@
 
     &:global(.text) {
       background: none;
+      border: none;
+      color: black;
+
+      &:hover {
+        background: none;
+        color: black;
+      }
     }
 
     @media (min-width: 992px) {
       background: white;
-      border: none;
-      color: black;
+      /* border: none; */
       border: 1px solid black;
+      color: black;
       transition: background 1s;
 
       &:hover {

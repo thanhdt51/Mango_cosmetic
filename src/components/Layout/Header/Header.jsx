@@ -6,6 +6,7 @@ import {
 
 import React from "react";
 import { Navbar, Nav, Container, Form, FormControl } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import "./Header.scss";
 
@@ -39,24 +40,24 @@ class Header extends React.Component {
       <header>
         <Navbar collapseOnSelect expand="lg" bg="#fff1f3">
           <Container>
-            <Navbar.Brand href="#home" className="order-lg-0">
+            <Navbar.Brand as={Link} to="/" className="order-lg-0">
               <Logo className="logo"/>
             </Navbar.Brand>
             <div className="d-lg-none cart ml-auto mr-3">
-              <a href="#cart">
+              <a href="/cart">
                 <Icon icon={faShoppingCart} color="black" />
                 <sup className="cartNumber">0</sup>
               </a>
             </div>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-              <Form className="d-flex order-lg-2 ml-auto pr-lg-3">
+              <Form className="d-flex order-lg-2 ml-auto pr-lg-3 searchForm">
                 <FormControl
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <Button className="text">
+                <Button className="text searchBtn">
                   <Icon icon={faSearch} color="black" />
                 </Button>
               </Form>
@@ -66,7 +67,7 @@ class Header extends React.Component {
               
               <hr className="d-lg-none" />
               <div className="d-none d-lg-block order-lg-3 cart pr-lg-2">
-                <a href="#cart">
+                <a href="/cart">
                   <Icon icon={faShoppingCart} color="black" />
                   <sup className="cartNumber">0</sup>
                 </a>

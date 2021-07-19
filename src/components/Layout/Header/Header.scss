@@ -7,6 +7,12 @@ header {
     width: 100px;
   }
 
+  .searchForm {
+    .searchBtn {
+      border: 1px solid black;
+    }
+  }
+
   sup.cartNumber {
     font-size: 15px;
     vertical-align: 5px;
