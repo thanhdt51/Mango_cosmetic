@@ -143,131 +143,78 @@ class Cart extends React.Component {
     return (
       <Layout>
         <Container>
-          {/* Mobile */}
-          <div className="d-block d-lg-none">
-            {Object.values(products).map((product) => (
-              <Row key={product.id} className={s.cartProduct}>
-                <Col xs={4}>
-                  <img
-                    src={product.thumbnail_url}
-                    alt="cart-product"
-                    className={s.image}
-                  />
-                </Col>
-                <Col xs={8}>
-                  <div className={s.title}>
-                    <a href="#">{product.name}</a>
-                  </div>
-                  <Row>
-                    <Col xs={5}>
-                      <div className={s.price}>
-                        {moneyParser(product.price)}
-                      </div>
-                    </Col>
-                    <Col xs={7}>
-                      <div>
-                        <Button
-                          onClick={this.handleDelete}
-                          name={product.id}
-                          className="text"
-                        >
-                          <Icon icon={faTrash} color="black" />
-                        </Button>
-                      </div>
-                    </Col>
-                  </Row>
-                  <div className={s.quantity}>
-                    <Button
-                      onClick={this.decreaseQuantity}
-                      className="text quantityBtn"
-                      name={product.id}
-                      disabled={product.quantity === 1}
-                    >
-                      <Icon icon={faMinus} color="rgb(0 0 0 / 61%)" />
-                    </Button>
-                    <div className={s.number}>{product.quantity}</div>
-                    <Button
-                      onClick={this.increaseQuantity}
-                      className="text quantityBtn"
-                      name={product.id}
-                    >
-                      <Icon icon={faPlus} color="rgb(0 0 0 / 61%)" />
-                    </Button>
-                  </div>
-                </Col>
-              </Row>
-            ))}
-            <Row className={s.cartCheckout}>
-              <Col xs={6}>
-                <div className={s.total}>
-                  <p>Total:</p>
-                  <h5 className={s.totalPrice}>{moneyParser(2000000)}</h5>
-                </div>
-              </Col>
-              <Col xs={6} className={s.checkoutBtn}>
-                <a href="/cart/checkout">
+          <Row className={s.cartRow}>
+            <Col xs={12} lg={9} className={s.cartProduct}>
+              {Object.values(products).map((product) => (
+                <Row key={product.id} className={s.cartProductRow}>
+                  <Col xs={3} lg={3}>
+                    <img
+                      src={product.thumbnail_url}
+                      alt="cart-product"
+                      className={s.image}
+                    />
+                  </Col>
+                  <Col xs={6} lg={7}>
+                    <div className={s.title}>
+                      <a href="#">{product.name}</a>
+                    </div>
+                    <div className={s.quantity}>
+                      <Button
+                        onClick={this.decreaseQuantity}
+                        className="text quantityBtn"
+                        name={product.id}
+                        disabled={product.quantity === 1}
+                      >
+                        <Icon icon={faMinus} color="rgb(0 0 0 / 61%)" />
+                      </Button>
+                      <div className={s.number}>{product.quantity}</div>
+                      <Button
+                        onClick={this.increaseQuantity}
+                        className="text quantityBtn"
+                        name={product.id}
+                      >
+                        <Icon icon={faPlus} color="rgb(0 0 0 / 61%)" />
+                      </Button>
+                    </div>
+                  </Col>
+                  <Col xs={3} lg={2}>
+                    <div className={s.price}>
+                      {moneyParser(product.quantity * product.price)}
+                    </div>
+                    <div className={s.delBtn}>
+                      <Button
+                        onClick={this.handleDelete}
+                        name={product.id}
+                        className="text"
+                      >
+                        <Icon icon={faTrash} color="black" />
+                      </Button>
+                    </div>
+                  </Col>
+                </Row>
+              ))}
+            </Col>
+            <Col xs={12} lg={3} className={s.cartCheckout}>
+              <div className={s.total}>
+                <p>Total:</p>
+                <h5 className={s.totalPrice}>
+                  {moneyParser(
+                    Object.values(products).reduce(
+                      (previousProducts, currentProduct) => (
+                        previousProducts +
+                        (currentProduct.price * currentProduct.quantity)),
+                      0
+                    )
+                  )}    
+                </h5>
+              </div>
+              <div className={s.checkoutBtn}>
+                <a href="/checkout">
                   <Button>CHECKOUT</Button>
                 </a>
-              </Col>
-            </Row>
-          </div>
-
-          {/* Desktop */}
-          <div className="d-none d-lg-block">
-            <Row>
-              <Col lg={9}>
-                {Object.values(products).map((product) => (
-                  <Row key={product.id}>
-                    <div className={s.cartProduct}>
-                      <Col lg={3}>
-                        <img
-                          src={product.thumbnail_url}
-                          alt="cart-product"
-                          className={s.image}
-                        />
-                      </Col>
-                      <Col lg={7}>
-                        <h6>
-                          <a href="#">{product.name}</a>
-                        </h6>
-                      </Col>
-                      <Col lg={2}>
-                        <h5>{moneyParser(product.price)}</h5>
-                        <p>
-                          Quantity:
-                          <input
-                            type="number"
-                            name="quantity"
-                            value="1"
-                            min="1"
-                            max="10"
-                          />
-                        </p>
-                        <Button className="text">
-                          <Icon icon={faTrash} color="black" />
-                        </Button>
-                      </Col>
-                    </div>
-                  </Row>
-                ))}
-              </Col>
-              <Col lg={3}>
-                <div className={s.cartCheckout}>
-                  <div className={s.total}>
-                    <p>Total:</p>
-                    <h5 className={s.totalPrice}>
-                      <strong>{moneyParser(2000000)}</strong>
-                    </h5>
-                  </div>
-                  <div className={s.checkoutBtn}>
-                    <a href="/cart/checkout">
-                      <Button>CHECKOUT</Button>
-                    </a>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </div>
+              </div>
+            </Col>
+          </Row>
         </Container>
       </Layout>
     );

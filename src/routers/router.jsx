@@ -6,6 +6,7 @@ import Home from "./Home";
 import Cart from "./Cart";
 import ProductPage from "./ProductPage";
 import Checkout from "./Checkout";
+import Receipt from "./Receipt";
 
 function Router() {
   return (
@@ -14,11 +15,14 @@ function Router() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/cart">
-          <Cart/>
+        <Route path="/cart">
+          <Cart />
         </Route>
-        <Route path="/cart/checkout">
-          <Checkout/>
+        <Route path="/checkout">
+          <Checkout />
+        </Route>
+        <Route path="/receipt">
+          <Receipt />
         </Route>
         <Route exact path="/:category">
           <ProductPage />

@@ -1,76 +1,95 @@
-.cartProduct {
-  margin-top: 50px;
+.cartRow {
+  position: relative;
 
-  @media (min-width: 992px) {
-    box-shadow: 0 0 5px -2px #0000008c;
-    margin: 10px;
-    padding: 20px;
-    display: flex;
-  }
+  .cartProduct {
+    margin-top: 50px;
 
-  .image {
-    width: 100%;
-  }
-
-  .title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .price {
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-
-  .quantity {
     @media (max-width: 991px) {
+      margin-top: 20px;
+    }
+
+    .cartProductRow {
+      margin: 30px 0;
+
+      @media (min-width: 992px) {
+        box-shadow: 0 0 5px -2px #0000008c;
+        padding: 10px;
+        margin: 20px 5px;
+      }
+
+      .image {
+        width: 100%;
+      }
+
+      .price {
+        text-align: end;
+      }
+
+      .delBtn {
+        text-align: center;
+      }
+
+      .quantity {
+        display: flex;
+
+        :global(.quantityBtn) {
+          border: 1px solid rgb(0 0 0 / 34%);
+        }
+
+        .number {
+          align-self: center;
+          border: 1px solid rgb(0 0 0 / 34%);
+          padding: 6px 15px;
+          border-left: 0;
+          border-right: 0;
+        }
+      }
+    }
+  }
+
+  .cartCheckout {
+    @media (max-width: 991px) {
+      box-shadow: 0 0 10px -2px #0000008c;
+      margin-top: 50px;
       display: flex;
-
-      :global(.quantityBtn) {
-        border: 1px solid rgb(0 0 0 / 34%);
-      }
-
-      .number {
-        align-self: center;
-        border: 1px solid rgb(0 0 0 / 34%);
-        padding: 6px 15px;
-        border-left: 0;
-        border-right: 0;
-      }
+      gap: 40px;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      z-index: 2;
+      background-color: white;
     }
-  }
-}
 
-.cartCheckout {
-  box-shadow: 0 0 10px -2px #0000008c;
-  margin-top: 50px;
-
-  @media (min-width: 992px) {
-    box-shadow: 0 0 5px -2px #0000008c;
-    margin: 10px 0;
-    text-align: center;
-    padding: 30px 10px;
-    height: 208.75px;
-  }
-
-  .total {
     @media (min-width: 992px) {
-      margin-bottom: 30px;
+      box-shadow: 0 0 5px -2px #0000008c;
+      margin-top: 70px;
+      text-align: center;
+      padding: 10px;
+      height: 186.25px;
+      position: sticky;
+      top: 0;
+      right: 0;
     }
 
-    .totalPrice {
-      font-size: 30px;
-      color: #A40000;
+    .total {
+      @media (min-width: 992px) {
+        margin-bottom: 30px;
+      }
+
+      .totalPrice {
+        font-size: 30px;
+        color: #a40000;
+      }
     }
-  }
 
-  .checkoutBtn {
-    align-self: center;
-
-    button {
+    .checkoutBtn {
+      align-self: center;
       width: 100%;
+
+      button {
+        width: 100%;
+      }
     }
   }
 }

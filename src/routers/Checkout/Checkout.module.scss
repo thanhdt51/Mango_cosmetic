@@ -1,0 +1,147 @@
+.cartDesktop {
+  @media (min-width: 992px) {
+    flex-direction: row-reverse;
+
+    .cartProductDesktop {
+      top: 30px;
+    }
+  }
+}
+
+.checkoutPage .cartBtn {
+  width: 100%;
+  color: #828282;
+  background: #d5d3d3;
+  border: none;
+  text-align: left;
+}
+
+.checkoutPage .cartBtn:focus {
+  color: #828282;
+  background: #d5d3d3;
+  box-shadow: none;
+}
+
+.cart {
+  height: 0;
+  visibility: hidden;
+
+  &.active {
+    height: 100%;
+    visibility: visible;
+  }
+
+  @media (min-width: 992px) {
+    height: 100%;
+    visibility: visible;
+  }
+
+  .cartProduct {
+    margin-bottom: 20px;
+    position: relative;
+
+    .image {
+      width: 100%;
+    }
+
+    .checkoutQuantity {
+      position: absolute;
+      top: -15px;
+      right: 0;
+    }
+
+    .price {
+      text-align: end;
+    }
+  }
+
+  .cartProduct:first-child {
+    margin-top: 20px;
+  }
+
+  .totalPrice {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.orText {
+  text-align: center;
+  position: relative;
+  margin: 20px 0;
+}
+
+.orText::before {
+  width: 100%;
+  height: 1px;
+  content: "";
+  background: #e0e0e0;
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5px;
+  left: 0;
+}
+
+span {
+  padding: 0 10px;
+  background: #fff;
+  font-size: 14px;
+  color: #bdbdbd;
+  position: relative;
+}
+
+.flexSocial {
+  display: flex;
+  gap: 7%;
+  margin-top: 50px;
+
+  a {
+    width: 35%;
+    text-align: center;
+    padding: 5px;
+    border-radius: 2px;
+  }
+
+  .gg {
+    font-size: 30px;
+    border: 1px solid red;
+  }
+
+  .apple {
+    font-size: 30px;
+    border: 1px solid black;
+  }
+
+  .amazon {
+    font-size: 30px;
+    border: 1px solid #ffc107;
+  }
+}
+
+.infoCheckout {
+  margin: 50px 0;
+
+  .headerCheckout {
+    margin: 30px 0;
+  }
+
+  .contentCheckout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.centerAlignBtn {
+  text-align: center;
+
+  .confirmBtn {
+    width: 100%;
+    margin-bottom: 50px;
+  
+    @media(min-width: 992px) {
+      width: 50%;
+      height: 50%;
+    }
+  }
+}

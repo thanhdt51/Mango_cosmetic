@@ -57,7 +57,7 @@ class Header extends React.Component {
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <Button className="text searchBtn">
+                <Button className="searchBtn" type="text">
                   <Icon icon={faSearch} color="black" />
                 </Button>
               </Form>
