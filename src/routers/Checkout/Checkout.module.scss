@@ -5,6 +5,10 @@
     .cartProductDesktop {
       top: 30px;
     }
+
+    .checkout {
+      padding-right: 250px;
+    }
   }
 }
 
@@ -19,6 +23,12 @@
 .checkoutPage .cartBtn:focus {
   color: #828282;
   background: #d5d3d3;
+  box-shadow: none;
+}
+
+.checkoutPage .cartBtn:active {
+  color: #828282;
+  background: #a3f4ff;
   box-shadow: none;
 }
 
@@ -129,6 +139,10 @@ span {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+      @media(min-width: 992px) {
+        gap: 40px;
+      }
   }
 }
 
@@ -138,8 +152,8 @@ span {
   .confirmBtn {
     width: 100%;
     margin-bottom: 50px;
-  
-    @media(min-width: 992px) {
+
+    @media (min-width: 992px) {
       width: 50%;
       height: 50%;
     }

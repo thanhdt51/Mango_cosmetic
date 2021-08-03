@@ -7,6 +7,7 @@ import Cart from "./Cart";
 import ProductPage from "./ProductPage";
 import Checkout from "./Checkout";
 import Receipt from "./Receipt";
+import ProductDetail from "./ProductDetail";
 
 function Router() {
   return (
@@ -24,12 +25,11 @@ function Router() {
         <Route path="/receipt">
           <Receipt />
         </Route>
-        <Route exact path="/:category">
-          <ProductPage />
+        <Route path="/products/:id">
+          <ProductDetail />
         </Route>
-        <Route path="/:category/:subCategory">
-          <ProductPage />
-        </Route>
+        <Route exact path="/:category" component={ProductPage} />
+        <Route path="/:category/:subCategory" component={ProductPage} />
       </Switch>
     </BrowserRouter>
   );

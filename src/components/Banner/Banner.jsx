@@ -8,7 +8,7 @@ import Button from "../Button";
 import s from "./Banner.module.scss";
 
 function Banner(props) {
-  const { className, title, imgSrc, description, showButton, showBackground } = props;
+  const { className, title, imgSrc, description, showButton, showBackground, link } = props;
 
   return (
     <Card className={classNames(s.card, className)}>
@@ -21,7 +21,7 @@ function Banner(props) {
       <Card.ImgOverlay className={s.cardBody}>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{description}</Card.Text>
-        {showButton && <Button>SHOP NOW</Button>}
+        {showButton && <a href={link}><Button>SHOP NOW</Button></a>}
       </Card.ImgOverlay>
     </Card>
   );
@@ -38,6 +38,7 @@ Banner.propTypes = {
   description: PropTypes.string.isRequired,
   showButton: PropTypes.bool,
   showBackground: PropTypes.bool,
+  link: PropTypes.string.isRequired,
 };
 
 Banner.defaultProps = {

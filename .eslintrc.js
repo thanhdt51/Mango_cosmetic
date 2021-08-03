@@ -12,6 +12,8 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react"],
-  rules: {},
+  rules: {
+    "arrow-body-style": "off",
+  },
   parser: "babel-eslint",
 };

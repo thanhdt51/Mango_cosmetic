@@ -3,7 +3,7 @@ import React from "react";
 import s from "./Home.module.scss";
 
 import Slide from "./Slide";
-import BestSellerSwiper from "./BestSellerSwiper";
+import ProductSwiper from "../../components/ProductSwiper";
 import Banner from "../../components/Banner";
 import Layout from "../../components/Layout";
 
@@ -11,6 +11,7 @@ const banners = [
   {
     className: s.banner1,
     title: "THE POWER OF SKINCARE",
+    link: "/skincare",
     description:
       "Some quick example text to build on the card title and make up the bulk of the card's content.",
     imgSrc: {
@@ -25,6 +26,7 @@ const banners = [
   {
     className: s.banner2,
     title: "THE POWER OF MAKEUP",
+    link: "/makeup",
     description:
       "Some quick example text to build on the card title and make up the bulk of the card's content.",
     imgSrc: {
@@ -42,7 +44,7 @@ function Home() {
   return (
     <Layout>
       <Slide />
-      <BestSellerSwiper className={s.swiper} />
+      <ProductSwiper className={s.swiper} title="SHOP BEST SELLERS" />
       {banners.map((banner) => (
         <Banner
           showButton
@@ -51,6 +53,7 @@ function Home() {
           title={banner.title}
           description={banner.description}
           imgSrc={banner.imgSrc}
+          link={banner.link}
         />
       ))}
     </Layout>

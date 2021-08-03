@@ -3,6 +3,11 @@
     background: black;
     color: white;
 
+    /* &:active {
+      background: black;
+    color: white;
+    } */
+
     &:global(.text) {
       background: none;
       border: none;
@@ -12,6 +17,23 @@
         background: none;
         color: black;
       }
+    }
+
+    &:active {
+      background: black;
+      color: white;
+    }
+
+    &:not(:disabled):active {
+      background: black;
+      color: white;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border-color: black;
+      background: black;
+      color: white;
     }
 
     @media (min-width: 992px) {

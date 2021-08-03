@@ -1,0 +1,11 @@
+.receipt {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 298.44px - 126px);
+
+  .icon {
+    font-size: 100px;
+  }
+} 

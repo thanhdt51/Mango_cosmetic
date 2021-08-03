@@ -4,11 +4,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper/core";
 import PropTypes from "prop-types";
 
-import Product from "../../../components/Product";
+import Product from "../Product";
 
 import "swiper/components/navigation/navigation.scss";
 import "swiper/swiper.scss";
-import s from "./BestSellerSwiper.module.scss";
+import s from "./ProductSwiper.module.scss";
 
 SwiperCore.use(Navigation);
 
@@ -80,10 +80,10 @@ const products = [
   },
 ];
 
-function BestSellerSwiper({ className }) {
+function BestSellerSwiper({ className, title }) {
   return (
     <div className={className}>
-      <h3 className={s.titleSwiper}>SHOP BEST SELLERS</h3>
+      <h3 className={s.titleSwiper}>{title}</h3>
       <div className={s.swiper}>
         <Swiper
           navigation
@@ -107,10 +107,12 @@ function BestSellerSwiper({ className }) {
 
 BestSellerSwiper.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.string,
 };
 
 BestSellerSwiper.defaultProps = {
   className: null,
+  title: null,
 };
 
 export default BestSellerSwiper;

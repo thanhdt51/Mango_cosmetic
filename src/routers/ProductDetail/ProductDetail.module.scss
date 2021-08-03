@@ -1,0 +1,61 @@
+.detailPage {
+  margin: 50px 0;
+  padding: 0 50px;
+
+  @media (max-width: 991px) {
+    gap: 50px;
+    padding: 0 10px;
+  }
+
+  .image {
+    text-align: center;
+  }
+
+  .productInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    .quantity {
+      display: flex;
+
+      .quantityBtn.btn {
+        border: 1px solid rgb(0 0 0 / 34%);
+        background-color: white;
+      }
+
+      .quantityBtn.btn:hover {
+        border: 1px solid rgb(0 0 0 / 34%);
+        background-color: white;
+        box-shadow: none;
+      }
+
+      .quantityBtn.btn:active {
+        background-color: white;
+      }
+
+      .quantityBtn.btn:focus:active {
+        border: 1px solid rgb(0 0 0 / 34%);
+        box-shadow: none;
+      }
+
+      .number {
+        align-self: center;
+        border: 1px solid rgb(0 0 0 / 34%);
+        padding: 6px 15px;
+        border-left: 0;
+        border-right: 0;
+      }
+    }
+    .bagBtn {
+      width: 100%;
+      @media(min-width: 992px) {
+        width: 34%;
+        padding: 20px;
+        margin-top: 30px;
+      }
+    }
+  }
+}

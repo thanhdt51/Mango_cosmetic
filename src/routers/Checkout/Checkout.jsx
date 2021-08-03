@@ -6,8 +6,6 @@ import {
   faGooglePay,
 } from "@fortawesome/free-brands-svg-icons";
 
-import {} from "@fortawesome/free-solid-svg-icons";
-
 import { Col, Container, Row } from "react-bootstrap";
 import classNames from "classnames";
 
@@ -150,7 +148,7 @@ class Checkout extends React.Component {
             </Container>
           </Col>
 
-          <Col lg={7}>
+          <Col lg={7} className={s.checkout}>
             <Container>
               <div className={s.flexSocial}>
                 <a className={s.gg} href="#">
