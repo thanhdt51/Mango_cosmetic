@@ -87,7 +87,9 @@ function BestSellerSwiper({ className, title }) {
       <div className={s.swiper}>
         <Swiper
           navigation
-          slidesPerView={1}
+          slidesPerView="auto"
+          spaceBetween={16}
+          centeredSlides
           breakpoints={{ 992: { slidesPerView: 4, spaceBetween: 5 } }}
         >
           {products.map((product) => (

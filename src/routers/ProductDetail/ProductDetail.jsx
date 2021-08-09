@@ -2,43 +2,55 @@ import React from "react";
 
 import { Col, Row } from "react-bootstrap";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
 
 import classnames from "classnames";
 
 import Layout from "../../components/Layout";
 import Button from "../../components/Button";
 import Icon from "../../components/Icon";
-
-import { moneyParser } from "../../utils";
-
-import s from "./ProductDetail.module.scss";
 import ProductSwiper from "../../components/ProductSwiper";
 
-const defaultProduct = {
-  id: 727090331,
-  name: "Son Dưỡng Môi Không Phai Elyza Hương Thị Siêu Sang – Phiên Bản Bươm Bướm",
-  brand_name: "Elyza",
-  short_description:
-    "Son Dưỡng Môi Không Phai Elyza Hương Thị Siêu Sang – Phiên Bản Bươm Bướm\nBên cạnh các thỏi son lì và son kem lâu trôi, các nàng cũng nên kết thân với son dưỡng môi có màu nhẹ nhàng giúp đôi môi luôn...",
-  price: 246000,
-  thumbnail_url:
-    "https://salt.tikicdn.com/cache/280x280/ts/product/b3/1d/9e/d30e5d76eec1f06c1c4d400beeb684d3.png",
-  thumbnail_width: 280,
-  thumbnail_height: 280,
-  category: ["makeup", "lips"],
-};
+import { moneyParser, fetchProducts } from "../../utils";
+
+import s from "./ProductDetail.module.scss";
 
 class ProductDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { product: {} };
+    this.state = { product: {}, similarProducts: [] };
   }
 
-  componentDidMount = () => {
-    this.setState({
-      product: { ...defaultProduct, quantity: 1 },
+  componentDidMount() {
+    const { match } = this.props;
+    const { id } = match.params;
+
+    fetchProducts({
+      url: `https://tiki.vn/api/v2/products/${id}`,
+    }).then((result) => {
+      this.setState({
+        product: {
+          name: result.name,
+          brand_name: result.brand.name,
+          short_description: result.short_description,
+          price: result.price,
+          thumbnail_url: result.thumbnail_url,
+          quantity: 1,
+        },
+      });
     });
-  };
+
+    fetchProducts({
+      url: "https://tiki.vn/api/personalish/v2/pdp",
+      params: {
+        mpid: id
+      },
+    }).then((result) => {
+      this.setState({
+        similarProducts: result.widgets[1].items,
+      });
+    });
+  }
 
   decreaseQuantity = () => {
     this.setState((state) => ({
@@ -59,19 +71,19 @@ class ProductDetail extends React.Component {
   };
 
   render() {
-    const { product } = this.state;
+    const { product, similarProducts } = this.state;
 
     return (
       <Layout>
         <Row className={s.detailPage}>
           <Col xs={12} lg={6} className={s.image}>
-            <img src={defaultProduct.thumbnail_url} alt={defaultProduct.name} />
+            <img src={product.thumbnail_url} alt={product.name} />
           </Col>
           <Col xs={12} lg={6} className={s.productInfo}>
-            <h3>{defaultProduct.name}</h3>
-            <p>Brand: {defaultProduct.brand_name}</p>
-            <p>{defaultProduct.short_description}</p>
-            <h4>Giá: {moneyParser(defaultProduct.price)}</h4>
+            <h3>{product.name}</h3>
+            <p>Brand: {product.brand_name}</p>
+            <p>{product.short_description}</p>
+            <h4>Giá: {moneyParser(product.price)}</h4>
             <Row className={s.btn}>
               <Col xs={4} lg={12} className={s.quantity}>
                 <Button
@@ -96,10 +108,15 @@ class ProductDetail extends React.Component {
           </Col>
         </Row>
 
-        <ProductSwiper title="YOU MAY ALSO LIKE" />
+        <ProductSwiper products={similarProducts} title="YOU MAY ALSO LIKE" />
       </Layout>
     );
   }
 }
+
+ProductDetail.propTypes = {
+  match: PropTypes.shape({ params: PropTypes.objectOf(PropTypes.string) })
+    .isRequired,
+};
 
 export default ProductDetail;

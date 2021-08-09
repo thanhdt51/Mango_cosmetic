@@ -9,6 +9,8 @@ import Product from "../../components/Product";
 import Pagination from "../../components/Pagination";
 import Breadcrumb from "../../components/Breadcrumb";
 
+import { fetchProducts } from "../../utils";
+
 import s from "./ProductPage.module.scss";
 
 const banners = {
@@ -160,15 +162,6 @@ const categoryIds = {
   conditioner: 1616,
 };
 
-async function fetchProducts(params) {
-  const url = new URL("https://tiki.vn/api/personalish/v1/blocks/listings");
-  url.search = new URLSearchParams(params).toString();
-
-  const response = await fetch(url);
-  const json = await response.json();
-  return json;
-}
-
 class ProductPage extends React.Component {
   constructor(props) {
     super(props);
@@ -180,9 +173,12 @@ class ProductPage extends React.Component {
     const { category, subCategory } = match.params;
 
     fetchProducts({
-      limit: 16,
-      category: categoryIds[subCategory || category],
-      page: 1,
+      url: "https://tiki.vn/api/personalish/v1/blocks/listings",
+      params: {
+        limit: 16,
+        category: categoryIds[subCategory || category],
+        page: 1,
+      },
     }).then((result) => {
       this.setState({
         products: { [subCategory || category]: result.data },
@@ -201,16 +197,36 @@ class ProductPage extends React.Component {
       prevProps.match.params.subCategory !== subCategory ||
       prevState.page !== page
     ) {
-      fetchProducts({
-        limit: 16,
-        category: categoryIds[subCategory || category],
-        page,
-      }).then((result) => {
-        this.setState({
-          products: { [subCategory || category]: result.data },
-          totalPage: result.paging.last_page,
+      if (prevState.page === page) {
+        fetchProducts({
+          url: "https://tiki.vn/api/personalish/v1/blocks/listings",
+          params: {
+            limit: 16,
+            category: categoryIds[subCategory || category],
+            page: 1,
+          },
+        }).then((result) => {
+          this.setState({
+            products: { [subCategory || category]: result.data },
+            totalPage: result.paging.last_page,
+            page: 1,
+          });
         });
-      });
+      } else {
+        fetchProducts({
+          url: "https://tiki.vn/api/personalish/v1/blocks/listings",
+          params: {
+            limit: 16,
+            category: categoryIds[subCategory || category],
+            page,
+          },
+        }).then((result) => {
+          this.setState({
+            products: { [subCategory || category]: result.data },
+            totalPage: result.paging.last_page,
+          });
+        });
+      }
     }
   }
 
@@ -257,8 +273,8 @@ class ProductPage extends React.Component {
           totalPage={totalPage}
           onPageChange={this.handlePageChange}
           currentPage={page}
-        />
-      </Layout>
+          />
+        </Layout>
     );
   }
 }
@@ -266,6 +282,7 @@ class ProductPage extends React.Component {
 ProductPage.propTypes = {
   match: PropTypes.shape({ params: PropTypes.objectOf(PropTypes.string) })
     .isRequired,
+  location: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default ProductPage;

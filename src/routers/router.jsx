@@ -25,9 +25,7 @@ function Router() {
         <Route path="/receipt">
           <Receipt />
         </Route>
-        <Route path="/products/:id">
-          <ProductDetail />
-        </Route>
+        <Route path="/products/:id" component={ProductDetail} />
         <Route exact path="/:category" component={ProductPage} />
         <Route path="/:category/:subCategory" component={ProductPage} />
       </Switch>
