@@ -32,7 +32,7 @@ Logo.propTypes = {
 
 Logo.defaultProps = {
   className: null,
-  fill: "#a6a8aa",
+  fill: "#a6a8aa" ,
 };
 
 export default Logo;
